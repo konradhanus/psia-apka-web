@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psia Apka – Twój Wirtualny Spacer z Psem</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0px auto;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-video{
+            position: fixed;
+            height: 130vh;
+        }
+        .hero iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        /* Animacje */
+       
+
+        /* Style dla nagłówków w sekcji hero */
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+            color: #fff; /* Domyślny kolor tekstu - biały */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Cień tekstu */
+        }
+
+        /* Style dla paragrafów w sekcji hero */
+        .hero p {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            animation: fadeIn 2s ease-in-out 1s;
+            color: #fff; /* Domyślny kolor tekstu - biały */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Cień tekstu */
+        }
+
+        /* Dodatkowy styl dla ciemnego tła */
+        body.dark-theme .hero h1, 
+        body.dark-theme .hero p {
+            color: #000; /* Czarny kolor tekstu na ciemnym tle */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Jasny cień tekstu */
+        }
+
+        .hero .cta {
+            margin-top: 2rem;
+            
+            animation: fadeIn 2s ease-in-out 2s;
+        }
+        .cta button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cta button:hover {
+            background: #e65c00;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        section {
+            padding: 0rem 1rem;
+            text-align: center;
+        }
+        .features {
+            background: white;
+        }
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .features p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .feature-item img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        .testimonials {
+            height: 400px;
+            background: #f2f2f2;
+        }
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .testimonial {
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .testimonial cite {
+            display: block;
+            font-weight: bold;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 0rem 1rem;
+            text-align: center;
+            position: sticky;
+            height: 60px;
+            z-index: 99999;
+        }
+        footer p {
+            margin: 0;
+            padding: 12px;
+        }
+        @media (min-width: 768px) {
+            .feature-item {
+                flex-direction: row;
+                text-align: left;
+            }
+            .feature-item img {
+                margin-right: 1rem;
+            }
+        }
+
+        /* Animacje */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Style dla sekcji CTA */
+#cta {
+    z-index: 99999;
+    position: relative;
+    height: 300px;
+    margin-bottom: 0px;
+    padding: 20px;
+    background-color: #f0f0f0; /* Domyślne tło - jasne */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Style dla nagłówków w sekcji CTA */
+#cta h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #000; /* Domyślny kolor tekstu - czarny */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Cień tekstu */
+}
+
+/* Style dla paragrafów w sekcji CTA */
+#cta p {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: #000; /* Domyślny kolor tekstu - czarny */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Cień tekstu */
+}
+
+/* Styl dla przycisku */
+#cta button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: fadeIn 2s ease-in-out 1s;
+}
+
+/* Dodatkowy styl dla ciemnego tła */
+body.dark-theme #cta {
+    background-color: #333; /* Ciemne tło */
+}
+
+body.dark-theme #cta h2, 
+body.dark-theme #cta p {
+    color: #fff; /* Biały kolor tekstu na ciemnym tle */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ciemny cień tekstu */
+}
+
+body.dark-theme #cta button {
+    background-color: #28a745; /* Zielony kolor przycisku na ciemnym tle */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div><a href="#"><img src="/PsiaApkaLogo.png" height="70"></a></div>
+            <div>
+                <a href="#features">Psia Apka</a>
+                <a href="#cta">Dołącz do gry</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div style="z-index: 100">
+            <h1>Witajcie w Psiej Apce</h1>
+            <p>Twój Wirtualny Psi świat</p>
+            <div class="cta">
+                <a href="https://testflight.apple.com/join/LzIw4ASS" target="_blank" rel="noopener noreferrer"><button>Zarejestruj się do testów alpha dla iOS</button></a>
+                <!-- <button onclick="document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });">Zarejestruj się do testów alpha</button> -->
+            </div>
+        </div>
+        <video id="hero-video" autoplay muted loop playsinline>
+            <source src="/video/RPReplay_Final1719253377.mov" type="video/mp4">
+            <!-- Dodaj więcej źródeł wideo (np. webm, ogg) w razie potrzeby -->
+            Twoja przeglądarka nie obsługuje elementu wideo.
+        </video>
+        <!-- <iframe id="hero-video" src="https://www.youtube.com/embed/zSllcbJMjhc?autoplay=1&mute=1&loop=1&playlist=zSllcbJMjhc;controls=0" style="z-index: 99" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe> -->
+    </section>
+
+    <section id="features" class="features" style="
+    margin-top: -100px;
+    z-index: 99999;
+    padding:  100px;
+    background-color: white;
+    position: relative;
+">
+        <h2>Dlaczego warto pobrać Psia Apkę?</h2>
+        <p>Oferujemy unikalne funkcje, które sprawią, że Twoje wirtualne spacery będą niezapomniane.</p>
+        <div class="feature-item">
+            <!-- <img src="https://source.unsplash.com/100x100/?walk" alt="Interaktywne spacery"> -->
+            <div>
+                <h3>Interaktywne spacery</h3>
+                <p>Wyprowadzaj swojego wirtualnego psa na spacer w prawdziwym świecie. Odkrywaj nowe miejsca i zdobywaj unikalne nagrody.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <!-- <img src="https://source.unsplash.com/100x100/?dog-park" alt="Dogspoty i Doggym"> -->
+            <div>
+                <h3>Dogspoty i Doggym</h3>
+                <p>Odwiedzaj specjalne punkty – DogSpoty i trenuj na DogGym'ach, aby rozwijać umiejętności swojego czworonoga.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <!-- <img src="https://source.unsplash.com/100x100/?dog-toys" alt="Zabawa i opieka"> -->
+            <div>
+                <h3>Zabawa i opieka</h3>
+                <p>Karm swojego psa, baw się z nim i dbaj o jego potrzeby, aby był zawsze szczęśliwy i zdrowy.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <!-- <img src="https://source.unsplash.com/100x100/?community" alt="Społeczność miłośników psów"> -->
+            <div>
+                <h3>Społeczność miłośników psów</h3>
+                <p>Dołącz do naszej rosnącej społeczności, dziel się doświadczeniami z innymi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+       
+    </section>
+
+    <section id="cta" style=" z-index: 99999; position: relative; height: 300px;">
+        <h2>Weź udział w testach alpha!</h2>
+        <p>Twoje opinie i sugestie są dla nas niezwykle cenne.</p>
+        <p>Dołącz do grupy entuzjastów, którzy jako pierwsi będą mieli okazję wypróbować naszą aplikację i mieć realny wpływ na jej rozwój.</p>
+       
+        <a href="https://testflight.apple.com/join/LzIw4ASS"><button>Zarejestruj się do testów alpha dla iOS</button></a>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+       
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Psia Apka. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroVideo = document.getElementById('hero-video');
+            
+            function setHeroVideoUrl() {
+                const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+                if (isPortrait) {
+
+                
+                    heroVideo.src = "/video/RPReplay_Final1719253377.mov";
+                } else {
+                    heroVideo.src = "/video/RPReplay_Final1719253377.mov";
+                }
+            }
+
+            // Set initial video URL based on orientation
+            setHeroVideoUrl();
+
+            // Listen for orientation change events
+            window.addEventListener('orientationchange', function() {
+                setHeroVideoUrl();
+            });
+        });
+    </script>
+</body>
+</html>
+           
