@@ -1,0 +1,17 @@
+.hero {
+    text-align: center;
+    padding: 50px 20;
+    background-color: #282c34;
+    color: white;
+}
+.cta button {
+    padding: 10px 20px;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+}
+.download-button img {
+    height: 50px;
+    margin-top: 20px;
+    display: block; /* Ensures the image is displayed */
+}

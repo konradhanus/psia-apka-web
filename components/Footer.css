@@ -1,0 +1,18 @@
+footer {
+    background: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+/* Existing styles... */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    footer {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
